@@ -5,16 +5,18 @@
   <%end%><br>
 
   <center>
-    <% @result_search.each do |result| %>
-      <div class="row">
-        <iframe width="100%"
-                height="166"
-                scrolling="no"
-                frameborder="no"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<%= result.id %>&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
-        </iframe>
-      </div><br>
+    <% if @result_search.nil? %>
+      <% @result_search.each do |result| %>
+        <div class="row">
+          <iframe width="100%"
+                  height="166"
+                  scrolling="no"
+                  frameborder="no"
+                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<%= result.id %>&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
+          </iframe>
+        </div><br>
+      <%end%>
+      <%= will_paginate @result_search, renderer: BootstrapPagination::Rails %>
     <%end%>
   </center>
-    <%= will_paginate @result_search, renderer: BootstrapPagination::Rails %>
 </div>
