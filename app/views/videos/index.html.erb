@@ -1,12 +1,11 @@
 <div class="container"><br>
   <%= form_tag nil, method: 'get' do %>
     <%= text_field_tag  :q, "", class:"form-control mr-sm-2", placeholder:"Search" %><br>
-    <center><%= submit_tag "Search", class:"btn btn-outline-success my-2 my-sm-0" %></center>
+    <center><%= submit_tag "Search", class:"btn btn-outline-success my-2 my-sm-0" %></center><br>
   <%end%>
 
-  <% if @results.nil? %><br>
-
-    <center><div class="row">
+  <center>
+    <div class="row">
       <% @results.each do |result| %>
         <div class="col-3">
           <%= result[:title] %>
@@ -20,7 +19,8 @@
           </iframe>
         </div>
       <%end%>
-    </div></center>
-    <%= will_paginate @results, renderer: BootstrapPagination::Rails %>
-  <%end%>
+    </div>
+  </center>
+  <%= will_paginate @results, renderer: BootstrapPagination::Rails %>
+
 </div>
