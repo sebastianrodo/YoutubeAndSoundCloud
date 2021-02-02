@@ -1,7 +1,5 @@
-require 'will_paginate/array'
+require 'action_controller'
 
 class ApplicationController < ActionController::Base
-  def index
-    @results = @start_api.init_search(params[:q]).paginate(page: params[:page], per_page: 3)
-  end
+  before_action :start_api
 end

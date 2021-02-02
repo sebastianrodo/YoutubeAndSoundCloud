@@ -1,8 +1,5 @@
-require_relative '.././services/youtube_Service'
-
-class VideosController < ApplicationController
-  def index
+class VideosController < YoutubeAndSoundcloudBaseController
+  def start_api
     @start_api = YoutubeService.new
-    super
   end
 end

@@ -1,9 +1,7 @@
 require 'will_paginate/array'
-require_relative '.././services/soundcloud_service'
 
-class SongsController < ApplicationController
-  def index
+class SongsController < YoutubeAndSoundcloudBaseController
+  def start_api
     @start_api = SoundcloudService.new
-    super
   end
 end

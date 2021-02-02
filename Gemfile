@@ -43,6 +43,8 @@ gem 'webmock', '~> 2.1'
 #Binding pry
 gem 'pry', '~> 0.13.1'
 gem 'rspec-rails'
+gem 'rails-controller-testing'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

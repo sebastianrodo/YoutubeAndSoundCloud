@@ -1,21 +1,18 @@
 require 'google/api_client'
 
 class YoutubeService
-  DEVELOPER_KEY = 'AIzaSyDWzjeSx0l1GtDS3Kunc9zaUyca6Lx0o10'
-  YOUTUBE_API_SERVICE_NAME = 'youtube'
-  YOUTUBE_API_VERSION = 'v3'
   MAX_RESULTS = 5
   attr_reader :client, :youtube
 
   def initialize
     @client = Google::APIClient.new(
-      key: DEVELOPER_KEY,
+      key: ENV['DEVELOPER_KEY'],
       authorization: nil,
       application_name: $PROGRAM_NAME,
       application_version: '1.0.0'
     )
     @client.user_agent = @client.user_agent.gsub("\n", '')
-    @youtube = @client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+    @youtube = @client.discovered_api(ENV['YOUTUBE_API_SERVICE_NAME'], ENV['YOUTUBE_API_VERSION'])
   end
 
   def init_search(query)
@@ -30,6 +27,8 @@ class YoutubeService
 
     result(search_response)
   end
+
+  private
 
   def result(search_response)
     search_response.data.items.each_with_object([]) do |search_result, videos|
