@@ -27,6 +27,24 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+#gems youtube and soundcloud
+gem 'google-api-client', '< 0.9'
+
+gem 'soundcloud', '~> 0.3.4'
+#bootstrap and jquery
+gem 'bootstrap'
+gem 'jquery-rails'
+#will_paginate
+gem 'will_paginate-bootstrap'
+#Rspec
+gem 'rspec'
+#WebMock
+gem 'webmock', '~> 2.1'
+#Binding pry
+gem 'pry', '~> 0.13.1'
+gem 'rspec-rails'
+gem 'rails-controller-testing'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
